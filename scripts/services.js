@@ -149,7 +149,7 @@ var dhis2commcareAppServices = angular.module('dhis2commcareAppServices', [])
                    type: "GET",
                    dataType: "json",
                    contentType: "application/json",
-                   url: '../../organisationUnits.json?paging=false&fields=id,name,attributeValues',
+                   url: '../../organisationUnits.json?paging=false&fields=id,name,attributeValues[value,attribute[id,name]]',
                    success: function (data) {
                        def.resolve(data.organisationUnits);
                    }
@@ -276,7 +276,7 @@ var dhis2commcareAppServices = angular.module('dhis2commcareAppServices', [])
                     type: "GET",
                     dataType: "json",
                     contentType: "application/json",
-                    url: '../../organisationUnits/'+OuId+'.json?includeDescendants=true&fields=id,name,attributeValues&paging=false',
+                    url: '../../organisationUnits/'+OuId+'.json?includeDescendants=true&fields=id,name,attributeValues[value,attribute[id,name]]&paging=false',
                     success: function (data) {
                         def.resolve({organisationUnits :data.organisationUnits,instanceIndex : instanceIndex});
                     }
